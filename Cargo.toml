@@ -6,4 +6,4 @@ authors = ["Hadrien G. <knights_of_ni@gmx.com>"]
 [dependencies]
 failure = "0.1.1"
 log = "0.4"
-vulkano = { path = "../vulkano/vulkano" }
+vulkano = { git="https://github.com/HadrienG2/vulkano.git", branch="storage-image-init" }

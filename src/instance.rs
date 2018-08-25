@@ -71,7 +71,7 @@ impl EasyInstance {
     pub fn new<'a>(
         app_infos: Option<&ApplicationInfo>,
         extensions: impl Into<RawInstanceExtensions>,
-        layers: impl IntoIterator<Item=&'a &'a str>,
+        layers: impl IntoIterator<Item=&'a str>,
     ) -> Result<Self> {
         let max_log_level = log::max_level();
         Self::with_debug_config(
@@ -93,7 +93,7 @@ impl EasyInstance {
     pub fn with_debug_config<'a>(
         app_infos: Option<&ApplicationInfo>,
         extensions: impl Into<RawInstanceExtensions>,
-        layers: impl IntoIterator<Item=&'a &'a str>,
+        layers: impl IntoIterator<Item=&'a str>,
         messages: MessageTypes,
     ) -> Result<Self> {
         // Display Vulkan implementation information
