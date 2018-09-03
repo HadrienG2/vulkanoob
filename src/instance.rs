@@ -166,6 +166,13 @@ impl EasyInstance {
     /// - Which devices you can or cannot use (the "filter")
     /// - Given two devices, which of the two you prefer (the "preference")
     ///
+    /// The "device_filter_helper" function at the root of this crate assists
+    /// you at this task by giving you a basic device filter template, which
+    /// handles all the basic requirements of device creations.
+    ///
+    /// Note that your device filter and preference should take your command
+    /// queue filter and preference into account.
+    ///
     /// Like the EasyInstance constructor, the physical device selector emits a
     /// lot of debug logs about your physical devices' actual capabilities,
     /// enabling you to promptly resolve device selection problems.
