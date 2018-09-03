@@ -55,8 +55,8 @@ impl<'instance> EasyPhysicalDevice<'instance> {
         &self,
         features: &Features,
         extensions: &DeviceExtensions,
-        filter: impl Fn(&QueueFamily) -> bool,
-        preference: impl Fn(&QueueFamily, &QueueFamily) -> Ordering
+        filter: impl FnMut(&QueueFamily) -> bool,
+        preference: impl FnMut(&QueueFamily, &QueueFamily) -> Ordering
     ) -> Result<Option<(Arc<Device>, Arc<Queue>)>> {
         // Select the appropriate queue family (if any)
         if let Some(queue_family) = self.device.queue_families()

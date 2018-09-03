@@ -179,8 +179,8 @@ impl EasyInstance {
     ///
     pub fn select_physical_device(
         &self,
-        filter: impl Fn(PhysicalDevice) -> bool,
-        preference: impl Fn(PhysicalDevice, PhysicalDevice) -> Ordering
+        mut filter: impl FnMut(PhysicalDevice) -> bool,
+        mut preference: impl FnMut(PhysicalDevice, PhysicalDevice) -> Ordering
     ) -> Result<Option<EasyPhysicalDevice>> {
         // Enumerate the physical devices
         info!("---- BEGINNING OF PHYSICAL DEVICE LIST ----");
