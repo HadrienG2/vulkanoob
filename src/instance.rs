@@ -166,7 +166,7 @@ impl EasyInstance {
     /// - Which devices you can or cannot use (the "filter")
     /// - Given two devices, which of the two you prefer (the "preference")
     ///
-    /// The "device_filter_helper" function at the root of this crate assists
+    /// The "easy_device_filter" function at the root of this crate assists
     /// you at this task by giving you a basic device filter template, which
     /// handles all the basic requirements of device creations.
     ///

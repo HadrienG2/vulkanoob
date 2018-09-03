@@ -33,7 +33,7 @@ pub type Result<T> = result::Result<T, failure::Error>;
 /// Features all the basic device selection criteria which you will almost
 /// always want to specify when using vulkanoob.
 ///
-pub fn device_filter_helper<'a>(
+pub fn easy_device_filter<'a>(
     features: &'a Features,
     extensions: &'a DeviceExtensions,
     queue_filter: &'a mut (impl FnMut(&QueueFamily) -> bool + 'a),
