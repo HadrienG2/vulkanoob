@@ -36,7 +36,7 @@ pub type Result<T> = result::Result<T, failure::Error>;
 pub fn easy_device_filter<'a>(
     features: &'a Features,
     extensions: &'a DeviceExtensions,
-    queue_filter: &'a mut (impl FnMut(&QueueFamily) -> bool + 'a),
+    mut queue_filter: impl FnMut(&QueueFamily) -> bool + 'a,
     mut other_criteria: impl FnMut(PhysicalDevice) -> bool + 'a
 ) -> impl FnMut(PhysicalDevice) -> bool + 'a {
     move |dev: PhysicalDevice| -> bool {
@@ -61,7 +61,7 @@ pub fn easy_device_filter<'a>(
         }
 
         // At least one device queue family should fit our needs
-        if dev.queue_families().find(&mut *queue_filter).is_none() {
+        if dev.queue_families().find(&mut queue_filter).is_none() {
             return false;
         }
 
